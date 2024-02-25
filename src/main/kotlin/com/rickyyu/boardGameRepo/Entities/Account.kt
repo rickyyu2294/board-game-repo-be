@@ -5,7 +5,7 @@ import jakarta.persistence.GeneratedValue
 import jakarta.persistence.Id
 
 @Entity
-class User(
+class Account(
     @Id @GeneratedValue var id: Long? = null,
     var login: String,
     var firstname: String,

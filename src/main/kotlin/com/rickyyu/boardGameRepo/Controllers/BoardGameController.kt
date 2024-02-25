@@ -1,13 +1,24 @@
 package com.rickyyu.boardGameRepo.Controllers
 
-import org.springframework.stereotype.Controller
+import com.rickyyu.boardGameRepo.Entities.BoardGame
+import com.rickyyu.boardGameRepo.Repositories.BoardGameRepository
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RestController
 
-@Controller
-class BoardGameController {
+@RestController
+class BoardGameController(
+    val repository: BoardGameRepository
+) {
 
-    @GetMapping("/boardgame")
-    fun boardGame() {
+    @GetMapping("/boardgames")
+    fun all(): List<BoardGame> {
+        return repository.findAll().toList()
+    }
 
+    @PostMapping("/boardgames")
+    fun addOneBoardGame(@RequestBody boardGame:BoardGame): BoardGame {
+        return repository.save(boardGame)
     }
 }

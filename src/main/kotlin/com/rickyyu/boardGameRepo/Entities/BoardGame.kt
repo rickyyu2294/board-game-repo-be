@@ -7,11 +7,12 @@ import java.util.*
 
 @Entity
 class BoardGame(
-    @Id @GeneratedValue var id: Long? = null,
+    @Id @GeneratedValue var gameId: Long,
     val name: String,
     val description: String,
     val playCount: Int = 0,
-    val supportedPlayers: Pair<Int, Int>
+    val minPlayers: Int = 0,
+    val maxPlayers: Int = 0,
 ) {
 //    override fun hashCode(): Int {
 //        return Objects.hash(id, name)
