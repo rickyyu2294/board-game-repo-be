@@ -6,10 +6,11 @@ import jakarta.persistence.Id
 
 @Entity
 class Account(
-    @Id @GeneratedValue var id: Long? = null,
     var login: String,
     var firstname: String,
-    var lastname: String
-) {
+    var lastname: String,
+    @Id @GeneratedValue var id: Long? = null,
+
+    ) {
 
 }
