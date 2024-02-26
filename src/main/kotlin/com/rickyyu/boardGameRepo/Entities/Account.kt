@@ -9,8 +9,7 @@ class Account(
     var login: String,
     var firstname: String,
     var lastname: String,
-    @Id @GeneratedValue var id: Long? = null,
-
+    @Id @GeneratedValue var id: Long? = null
     ) {
 
 }

@@ -8,10 +8,9 @@ import jakarta.persistence.Id
 class BoardGame(
     val name: String,
     val description: String,
-    val playCount: Int = 0,
     val minPlayers: Int = 0,
     val maxPlayers: Int = 0,
-    @Id @GeneratedValue var id: Long? = null,
+    @Id @GeneratedValue var id: Long? = null
     ) {
 //    override fun hashCode(): Int {
 //        return Objects.hash(id, name)
