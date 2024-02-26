@@ -1,16 +1,23 @@
 package com.rickyyu.boardGameRepo.Entities
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.Id
+import jakarta.persistence.*
 
 @Entity
 class BoardGame(
-    val name: String,
-    val description: String,
-    val minPlayers: Int = 0,
-    val maxPlayers: Int = 0,
-    @Id @GeneratedValue var id: Long? = null
+
+    var name: String,
+
+    var description: String,
+
+    var minPlayers: Int = 0,
+
+    var maxPlayers: Int = 0,
+
+    @OneToMany(mappedBy = "boardGame", cascade = [CascadeType.ALL], orphanRemoval = true)
+    var accounts: Set<AccountBoardGame> = HashSet(),
+
+    @Id @GeneratedValue
+    var id: Long? = null
     ) {
 //    override fun hashCode(): Int {
 //        return Objects.hash(id, name)

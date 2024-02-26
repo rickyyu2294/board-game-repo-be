@@ -1,16 +1,14 @@
 package com.rickyyu.boardGameRepo.Controllers
 
 import com.rickyyu.boardGameRepo.Entities.Account
+import com.rickyyu.boardGameRepo.Services.AccountBoardGameService
 import com.rickyyu.boardGameRepo.Services.AccountService
-import org.springframework.stereotype.Controller
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.*
 
-@Controller
+@RestController
 class AccountController(
-    private val accountService: AccountService
+    private val accountService: AccountService,
+    private val accountBoardGameService: AccountBoardGameService
 ) {
     @GetMapping("/accounts")
     fun all(): List<Account> {
@@ -22,8 +20,8 @@ class AccountController(
         return accountService.save(account)
     }
 
-    @GetMapping("/account/{login}")
-    fun getByName(@PathVariable login: String): Account? {
-        return accountService.findByLogin(login)
+    @GetMapping("/accounts/{username}")
+    fun getByName(@PathVariable username: String): Account? {
+        return accountService.findByUsername(username)
     }
 }

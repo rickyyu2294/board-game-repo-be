@@ -1,15 +1,21 @@
 package com.rickyyu.boardGameRepo.Entities
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.Id
+import jakarta.persistence.*
 
 @Entity
 class Account(
-    var login: String,
+
+    var username: String,
+
     var firstname: String,
+
     var lastname: String,
-    @Id @GeneratedValue var id: Long? = null
+
+    @OneToMany(mappedBy = "account", cascade = [CascadeType.ALL], orphanRemoval = true)
+    var boardGames: Set<AccountBoardGame> = HashSet(),
+
+    @Id @GeneratedValue
+    var id: Long? = null
     ) {
 
 }

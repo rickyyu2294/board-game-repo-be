@@ -19,7 +19,7 @@ class BoardGameController(
     }
 
     @PostMapping("/boardgames")
-    fun addBoardGame(@RequestBody boardGame:BoardGame): BoardGame {
+    fun addBoardGame(@RequestBody boardGame: BoardGame): BoardGame {
         return boardGameService.save(boardGame)
     }
 }

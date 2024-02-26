@@ -25,7 +25,7 @@ class RepositoriesTests @Autowired constructor(
     )
 
     val account = Account(
-        login = "johndoe",
+        username = "johndoe",
         firstname = "John",
         lastname = "Doe"
     )
@@ -40,11 +40,11 @@ class RepositoriesTests @Autowired constructor(
     }
 
     @Test
-    fun `When findByName then return account`() {
+    fun `When findByUsername then return account`() {
         testEntityManager.persist(account)
         testEntityManager.flush()
 
-        val found = accountRepository.findByLogin(account.login)!!
+        val found = accountRepository.findByUsername(account.username)!!
         assert(found == account)
     }
 }

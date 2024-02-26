@@ -1,8 +1,8 @@
 package com.rickyyu.boardGameRepo.Repositories
 
 import com.rickyyu.boardGameRepo.Entities.Account
+import com.rickyyu.boardGameRepo.Entities.AccountBoardGame
 import org.springframework.data.repository.CrudRepository
 
-interface AccountRepository: CrudRepository<Account, Long> {
-    fun findByUsername(username: String): Account?
+interface AccountBoardGameRepository: CrudRepository<AccountBoardGame, Long> {
 }

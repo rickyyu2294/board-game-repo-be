@@ -1,7 +1,6 @@
 package com.rickyyu.boardGameRepo.Services
 
 import com.rickyyu.boardGameRepo.Entities.Account
-import com.rickyyu.boardGameRepo.Entities.BoardGame
 import com.rickyyu.boardGameRepo.Repositories.AccountRepository
 import org.springframework.stereotype.Service
 
@@ -21,7 +20,7 @@ class AccountService(
         return repository.findById(id).orElse(null)
     }
 
-    fun findByLogin(login: String): Account? {
-        return repository.findByLogin(login)
+    fun findByUsername(username: String): Account? {
+        return repository.findByUsername(username)
     }
 }
