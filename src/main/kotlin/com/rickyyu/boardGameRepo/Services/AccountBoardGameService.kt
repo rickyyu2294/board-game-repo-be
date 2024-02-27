@@ -13,6 +13,11 @@ class AccountBoardGameService(
     private val boardGameRepository: BoardGameRepository,
     private val accountBoardGameRepository: AccountBoardGameRepository
 ) {
+
+    fun getBoardGamesForAccount(accountId: Long): List<AccountBoardGame> {
+        return accountBoardGameRepository.findByAccountId(accountId)
+    }
+
    @Transactional
    fun addBoardGameToAccount(accountId: Long, boardGameId: Long): AccountBoardGame {
        val account = accountRepository.findById(accountId).orElseThrow()

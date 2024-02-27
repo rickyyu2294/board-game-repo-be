@@ -5,4 +5,5 @@ import com.rickyyu.boardGameRepo.Entities.AccountBoardGame
 import org.springframework.data.repository.CrudRepository
 
 interface AccountBoardGameRepository: CrudRepository<AccountBoardGame, Long> {
+    fun findByAccountId(accountId: Long): List<AccountBoardGame>
 }
