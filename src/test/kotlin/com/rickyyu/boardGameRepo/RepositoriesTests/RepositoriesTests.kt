@@ -1,4 +1,4 @@
-package com.rickyyu.boardGameRepo
+package com.rickyyu.boardGameRepo.RepositoriesTests
 
 import com.rickyyu.boardGameRepo.Entities.Account
 import com.rickyyu.boardGameRepo.Entities.AccountBoardGame
@@ -57,7 +57,7 @@ class RepositoriesTests @Autowired constructor(
     }
 
     @Test
-    fun `When addBoardGameToAccount then return account boardgames`() {
+    fun `When findByAccountId then return account boardgames`() {
         testEntityManager.persist(game)
         testEntityManager.persist(account)
         testEntityManager.persist(accountGame)

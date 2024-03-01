@@ -1,5 +1,6 @@
 package com.rickyyu.boardGameRepo.Entities
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.*
 
 @Entity
@@ -13,6 +14,7 @@ class BoardGame(
 
     var maxPlayers: Int = 0,
 
+    @JsonIgnore
     @OneToMany(mappedBy = "boardGame", cascade = [CascadeType.ALL], orphanRemoval = true)
     var accounts: Set<AccountBoardGame> = HashSet(),
 
