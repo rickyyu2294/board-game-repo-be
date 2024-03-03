@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+#  board-game-repo:
+#    build: .
+#    ports:
+#      - "8080:8080"  # Expose your application's port
+#    depends_on:
+#      - postgres-db  # Dependency on PostgreSQL service
+
+  postgres-db:
+    image: postgres
+    ports:
+      - "5432:5432"  # Expose PostgreSQL port
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: boardgamerepo
+    volumes:
+      - board_game_repo_data:/var/lib/postgresql/data
+
+volumes:
+  board_game_repo_data:
